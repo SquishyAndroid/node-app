@@ -1,0 +1,25 @@
+
+### What is this repository for? ###
+
+* Simple Express skeleton with handlbars for templating.
+
+### How to run locally ###
+
+* `git clone git@github.com:squishyandroid/node-app.git`
+* `cd node-app`
+* `npm install`
+* `node app.js OR nodemon app.js`
+* Enter `http://localhost:3000` in your browser
+
+### Tech Stack ###
+
+* Node.js
+
+### Asset Management ###
+
+* When developing locally, all assets served locally from the `/assets`/ folder.
+* In Production: all local assets (images, css, js, videos, etc) automatically uploaded to S3 during builds, and served from CloudFront in the production site.
+
+### Who do I talk to? ###
+
+* Bradley Engelhardt <brad.engelhardt@gmail.com>
