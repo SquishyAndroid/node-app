@@ -1,7 +1,7 @@
 
 ### What is this repository for? ###
 
-* Simple Express skeleton with handlbars for templating.
+* Simple Express skeleton with handlbars for templating that I had created from scratch.
 
 ### How to run locally ###
 
