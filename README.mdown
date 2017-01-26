@@ -5,7 +5,7 @@
 
 ### How to run locally ###
 
-* `git clone git@github.com:squishyandroid/node-app.git`
+* `git clone git@github.com:SquishyAndroid/node-app.git`
 * `cd node-app`
 * `npm install`
 * `node app.js OR nodemon app.js`
