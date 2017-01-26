@@ -15,11 +15,6 @@
 
 * Node.js
 
-### Asset Management ###
-
-* When developing locally, all assets served locally from the `/assets`/ folder.
-* In Production: all local assets (images, css, js, videos, etc) automatically uploaded to S3 during builds, and served from CloudFront in the production site.
-
 ### Who do I talk to? ###
 
 * Bradley Engelhardt <brad.engelhardt@gmail.com>
