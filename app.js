@@ -1,6 +1,7 @@
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
+const helpers = require('./helpers.js');
 
 var app = express()
 
@@ -9,6 +10,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
 
+//server logs
 app.use((req, res, next) => {
   var now = new Date().toString();
   var log = `${now}: ${req.method} ${req.url}`;
@@ -26,23 +28,11 @@ app.use((req, res, next) => {
 //   res.render('maintenance.hbs');
 // });
 
-hbs.registerHelper('getCurrentYear', () => {
-  return new Date().getFullYear()
-});
-
-hbs.registerHelper('screamIt', (text) => {
-  return text.toUpperCase();
-});
-
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
-});
-
 /* GET home page. */
 app.get('/', function (req, res, next) {
   res.render('home.hbs', {
     userName: 'Brad',
-    pageTitle: 'Home Page',
+    pageTitle: 'Home',
     welcomeMessage: 'Welcome to my website!',
   })
 });
@@ -51,6 +41,11 @@ app.get('/', function (req, res, next) {
 app.get('/about', function (req, res, next) {
   res.render('about.hbs', {
     userName: 'Brad',
-    pageTitle: 'About Page',
+    pageTitle: 'About',
   });
+});
+
+//run server
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
 });
