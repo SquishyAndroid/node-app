@@ -24,10 +24,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.use((req, res, next) => {
-//   res.render('maintenance.hbs');
-// });
-
 /* GET home page. */
 app.get('/', function (req, res, next) {
   res.render('home.hbs', {
