@@ -1,45 +1,19 @@
 const express = require('express');
+var path = require('path');
 const hbs = require('hbs');
-const fs = require('fs');
-const helpers = require('./helpers.js');
+const helpers = require('./lib/helpers.js');
 
+var index = require('./routes/index');
 var app = express()
 
-//set up views
-hbs.registerPartials(__dirname + '/views/partials');
+// view engine setup
 app.set('view engine', 'hbs');
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', path.join(__dirname, 'views'));
+hbs.registerPartials(__dirname + '/views/partials');
 
-//server logs
-app.use((req, res, next) => {
-  var now = new Date().toString();
-  var log = `${now}: ${req.method} ${req.url}`;
-
-  fs.appendFile('server.log', log + '\n', (err) => {
-    if (err) {
-      console.log('Unable to append to server.log');
-    }
-  });
-  console.log(log);
-  next();
-});
-
-/* GET home page. */
-app.get('/', function (req, res, next) {
-  res.render('home.hbs', {
-    userName: 'Brad',
-    pageTitle: 'Home',
-    welcomeMessage: 'Welcome to my website!',
-  })
-});
-
-/* GET about page. */
-app.get('/about', function (req, res, next) {
-  res.render('about.hbs', {
-    userName: 'Brad',
-    pageTitle: 'About',
-  });
-});
+//use index for routes
+app.use("/", index);
 
 //run server
 app.listen(3000, function () {
